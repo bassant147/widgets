@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-export default ({ options, selected, onSelectedChange }) => {
+export default ({ label, options, selected, onSelectedChange }) => {
 	const [ open, setOpen ] = useState(false);
 	const ref = useRef();
 	
@@ -32,7 +32,7 @@ export default ({ options, selected, onSelectedChange }) => {
 	return (
 		<div ref={ref} className="ui form">
 			<div className="field">
-				<div className="label">Select a Color</div>
+				<div className="label">{label}</div>
         <div onClick={() => setOpen(!open)} className={`ui selection dropdown ${open ? 'visible active' : ''}`}>
           <i className="dropdown icon"></i>
           <div className="text">{selected.label}</div>
