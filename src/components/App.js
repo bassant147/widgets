@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import Translate from './Translate';
+import Route from "./Route";
+import Accordion from "./Accordion";
+import Search from "./Search";
+import Translate from "./Translate";
+import Dropdown from "./Dropdown";
+import Header from "./Header";
 
 const items = [
 	{ title: "What's your name?", content: "michael corleone" },
@@ -18,7 +23,24 @@ const App = () => {
 
 	return (
 		<div>
-			<Translate />
+			<Header />
+			<Route path="/">
+				<Accordion items={items} />
+			</Route>
+			<Route path="/list">
+				<Search />
+			</Route>
+			<Route path="/dropdown">
+				<Dropdown
+					label="Choose a Color"
+					options={options}
+					selected={selected}
+					onSelectedChange={setSelected}
+				/>
+			</Route>
+			<Route path="/translate">
+				<Translate />
+			</Route>
 		</div>
 	);
 };
